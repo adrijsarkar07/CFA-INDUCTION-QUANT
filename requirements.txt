@@ -1,5 +1,6 @@
-pandas
-numpy
-matplotlib
-yfinance
+pandas==2.2.3
+numpy==2.3.5
+matplotlib==3.10.8
+yfinance==1.7.0
+reportlab==4.4.9
 jupyter
