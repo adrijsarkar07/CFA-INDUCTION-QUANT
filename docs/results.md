@@ -1,59 +1,63 @@
-# Backtest Results
+# Backtest results
 
-## Assumptions
+The authoritative full table is `outputs/performance_metrics.csv` and the
+PDF is `outputs/quant_technical_report.pdf`.
 
-- Initial capital: ₹100,000.
-- Each entry allocates 10% of available cash, including entry fees.
-- Signals use daily closing prices.
-- Orders execute at the next trading session's open.
-- Slippage: 0.05% per side.
-- Transaction costs: 0.10% per side.
-- The 2024 final-test period was reserved for evaluation.
+## Development 2016–2022
 
-## 2023 Validation
+- Cumulative return: +2.70%; CAGR: +0.38%.
+- Sharpe: 0.28; Sortino: 0.40; drawdown: -3.32%.
+- 24 completed trades; 75% win rate; profit factor: 1.97.
+- Buy-and-hold: +428.52%; average strategy exposure: 1.68%.
+- Eight adjusted-price units remain held at this period's end.
 
-- Strategy return: approximately **+0.26%**
-- Buy-and-hold return: approximately **+9.11%**
-- Strategy maximum drawdown: approximately **−0.75%**
+## Original 2023 validation slice
+
+- Strategy: +0.26%; buy-and-hold: +9.11%; drawdown: -0.75%.
 - Five completed trades had entry dates in 2023.
 
-The strategy underperformed buy-and-hold during validation.
+This is the 2023 slice of a continuous 2016–2023 portfolio, measured
+first 2023 close to last 2023 close; it is not restarted in 2023.
+Exploratory analysis included validation, so it was not fully unseen.
 
-These figures describe the 2023 portion of the continuous
-2016–2023 backtest; the portfolio was not restarted in 2023.
-Returns are measured from the first 2023 session's close
-to the last session's close.
+## Final test 2024
 
-## 2024 Final Test
+- Strategy return marked to market: -0.56%; hypothetical liquidation: -0.58%.
+- Buy-and-hold: -5.64%; maximum strategy drawdown: -1.31%.
+- Sharpe: -0.61; Sortino: -0.85; profit factor: 0.41.
+- Three completed trades; win rate: 33.33%; eight units remain held.
+- Average strategy exposure: 2.42%.
 
-- Strategy return, marked to market: approximately **−0.56%**
-- Strategy return after estimated liquidation costs: approximately **−0.58%**
-- Buy-and-hold return: approximately **−5.64%**
-- Strategy maximum drawdown: approximately **−1.31%**
-- Three completed trades; eight simulated units remained open at year-end.
+The portfolio starts flat with INR 100,000 and uses 29 December 2023 as
+the baseline/prior signal date. The strategy lost less in this period,
+but was not profitable. The sample is too small for strong conclusions.
 
-The final test starts with a fresh ₹100,000 cash balance.
-The last trading session of 2023 supplies the preceding
-signal and the baseline date.
+## Additional development experiments
 
-The strategy lost less than buy-and-hold during 2024,
-but still lost money. Its low drawdown should be considered
-alongside its low capital exposure.
+A 3x3 grid uses windows 15/20/25 and entry thresholds -2.5/-2/-1.5.
+Development returns range from +0.48% to +8.40%. Baseline stays 20/-2.
+A 5% close-based stop plus a 20-session limit gives +1.56% return and
+-3.95% drawdown versus +2.70% / -3.32% baseline. Added exits did not help
+these metrics in this sample; they are not adopted as a revised strategy.
 
-Results from one test year and a small number of trades
-are limited evidence; they do not establish future performance.
+Regimes use prior-day trailing 60-session returns: rising above +5%,
+falling below -5%, sideways otherwise. Conditional daily averages are
+in `outputs/development_regimes.csv`; they are descriptive, not independent
+investable backtests. Baseline strategy mean daily return is positive on
+rising/falling-labelled days and slightly negative on sideways-labelled days.
+A lagged falling label does not imply that the following day's return is negative.
 
-## Comparison and Simulation Limitations
+## Conventions and limitations
 
-The strategy allocates 10% of available cash per entry.
-Buy-and-hold represents full exposure through an adjusted
-closing-price ratio. Lower strategy drawdown must therefore
-be considered alongside lower capital exposure.
+Ratios use daily portfolio returns, sqrt(252) scaling, zero risk-free rate
+and zero minimum acceptable return. Sortino downside deviation uses all
+daily observations, not just negative days. CAGR uses actual days / 365.25.
+Trade metrics include completed trades and net costs; equity includes open
+positions. N/A denotes absent applicable trades or a zero denominator.
 
-Strategy returns include assumed transaction costs and
-slippage; buy-and-hold returns exclude both.
-
-The backtest uses adjusted prices for fills and valuation.
-Reported quantities, including the eight units held at
-year-end, are simulated adjusted-price units. Corporate
-actions and dividend cash flows are not separately processed.
+The full-exposure buy-and-hold adjusted-close ratio excludes costs; strategy
+returns include costs and have much lower exposure. Adjusted-price quantities
+are simulated units, not reconstructed real historical share holdings.
+Splits/dividends are not separately processed. New development experiments
+were added after observing the baseline final test; no new variant has an
+untouched 2024 test. See the PDF for all caveats and suggested improvements.
