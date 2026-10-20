@@ -15,12 +15,6 @@
 - Five trades were entered.
 
 The strategy underperformed buy-and-hold during validation.
-
-## 2024 final test
-
-- Strategy return, marked to market: approximately **−0.56%**
-- Strategy return after estimated liquidation costs: approximately **−0.58%**
-
 These figures describe the 2023 portion of the continuous
 2016–2023 backtest; the portfolio was not restarted in 2023.
 Returns are measured from the first 2023 session's close
@@ -31,6 +25,11 @@ completed trades whose entry dates fall in 2023.
 - Three completed trades; eight shares remained open at year-end.
 
 The strategy lost less than buy-and-hold during 2024, but still lost money. Its low drawdown should be considered alongside its low capital exposure. Results from one test year and a small number of trades are limited evidence; they do not establish future performance.
+
+## 2024 final test
+
+- Strategy return, marked to market: approximately **−0.56%**
+- Strategy return after estimated liquidation costs: approximately **−0.58%**
 
 ## Comparison and Simulation Limitations
 
