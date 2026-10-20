@@ -19,3 +19,24 @@ The historical data is divided chronologically into development, validation, and
 The strategy returned approximately −0.56% marked to market, compared with −5.64% for buy-and-hold. After estimated liquidation costs for the remaining position, the strategy return was approximately −0.58%.
 
 The strategy had three completed trades and held eight shares at year-end. It lost less than buy-and-hold during this period, but did not make a profit. This single year and small number of trades are limited evidence of future performance.
+## Project Files
+
+- [Research notebook](notebooks/reliance.ipynb) — data exploration,
+  strategy implementation, backtesting, and evaluation.
+- [Dataset documentation](data/README.md) — data source and
+  chronological development, validation, and test splits.
+- [Results and limitations](docs/results.md) — validation and
+  final-test results with interpretation.
+
+## Limitations
+
+This study tests one stock and one strategy specification.
+The final-test period contains only three completed trades,
+which limits the strength of the conclusions.
+
+The strategy invests only part of the available capital.
+Its lower drawdown must therefore be considered alongside
+its lower market exposure compared with buy-and-hold.
+
+Transaction costs and slippage are simplified assumptions.
+Actual execution costs may differ.
