@@ -1,6 +1,6 @@
 # Execution and review record
 
-The completion was run on 20 October 2026 using the included 2,221-row
+The completion was run  using the included 2,221-row
 adjusted-price snapshot. The regenerated final-test baseline matches the
 original saved results to the reported precision: -0.56% return, -1.31%
 drawdown, three completed trades and eight open adjusted-price units.
